@@ -18,6 +18,13 @@ db.connect(err => {
     console.log('Database connected.');
 });
 
+//function to exit app and database
+const Exit = () => {
+    console.log('Good bye!');
+    console.log('Database connection ended');
+    db.end();
+}
+
 //main menu that user will see and select from
 const mainMenu = () => {
     inquirer.prompt([
@@ -36,5 +43,40 @@ const mainMenu = () => {
                 'Exit'
                 ]
         }
-    ]);
+    ])
+    .then(({choice}) => {
+        switch(choice) {
+            case 'View all departments':
+                //insert view all depart function
+                break;
+
+            case 'View all roles':
+                //insert view all roles function
+                break;
+
+            case 'View all employees':
+                //insert view all employees function
+                break;
+
+            case 'Add a department':
+                //insert add depart function
+                break;
+
+            case 'Add a role':
+                //insert add role function
+                break;
+
+            case 'Add an employee':
+                //insert add employee function
+                break;
+    
+            case 'Update an employee role':
+                //insert update employee function
+                break;
+    
+            default:
+                Exit();
+        }
+    })
 };
+
