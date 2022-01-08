@@ -3,14 +3,14 @@ const db = require('./db/connection');
 //inquirer package
 const inquirer = require('inquirer');
 //console table package
-const cTable = require('console.table');
+const Table = require('console.table');
 
 //department module
-const department = require('./lib/department');
+const {viewAllDepartments} = require('./lib/department');
 //role module
-const roles = require('./lib/role');
+const {viewAllRoles} = require('./lib/role');
 //employee module
-const employee = require('./lib/employee');
+const {viewAllEmployees} = require('./lib/employee');
 
 //notifies user that database is connected or not
 db.connect(err => {
@@ -20,7 +20,7 @@ db.connect(err => {
 
 //function to exit app and database
 const Exit = () => {
-    console.log('Good bye!');
+    console.log('Goodbye!');
     console.log('Database connection ended');
     db.end();
 }
@@ -47,15 +47,18 @@ const mainMenu = () => {
     .then(({choice}) => {
         switch(choice) {
             case 'View all departments':
-                //insert view all depart function
+                //view all depart function
+                viewAllDepartments();
                 break;
 
             case 'View all roles':
-                //insert view all roles function
+                //view all roles function
+                viewAllRoles();
                 break;
 
             case 'View all employees':
-                //insert view all employees function
+                //view all employees function
+                viewAllEmployees();
                 break;
 
             case 'Add a department':
@@ -80,3 +83,4 @@ const mainMenu = () => {
     })
 };
 
+module.exports = {mainMenu};
