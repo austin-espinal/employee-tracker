@@ -2,11 +2,9 @@
 const db = require('./db/connection');
 //inquirer package
 const inquirer = require('inquirer');
-//console table package
-const Table = require('console.table');
 
 //department module
-const {viewAllDepartments} = require('./lib/department');
+const {viewAllDepartments, addDepartment} = require('./lib/department');
 //role module
 const {viewAllRoles} = require('./lib/role');
 //employee module
@@ -62,7 +60,8 @@ const mainMenu = () => {
                 break;
 
             case 'Add a department':
-                //insert add depart function
+                //add depart function
+                addDepartment();
                 break;
 
             case 'Add a role':
