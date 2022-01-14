@@ -8,10 +8,11 @@ const mainMenu = require('./lib/menu');
 db.connect(err => {
     if (err) throw err;
     console.log('Database connected.');
-    console.log(`==================
+    console.log(`
+                =================
 
-                    Employee Tracker
+                Employee Tracker
 
-                ===================`);
+                =================`);
     mainMenu();
 });
